@@ -10,10 +10,6 @@ public class MediumPackage {
     }
 
     public BigDecimal mediumPackagePostageInBaseCurrency() {
-        return new BigDecimal(getWeight() * 4);
-    }
-
-    public int getWeight() {
-        return weight;
+        return new BigDecimal(weight * 4);
     }
 }
