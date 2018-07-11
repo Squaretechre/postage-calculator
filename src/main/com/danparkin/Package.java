@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class Package {
     private final SizedPackage sizedPackage;
 
-    public Package(int weight, int height, int width, int depth) {
-        sizedPackage = SizedPackage.withDimensions(depth, height, weight, width);
+    public Package(SizedPackage sizedPackage) {
+        this.sizedPackage = sizedPackage;
     }
 
     public BigDecimal PostageInBaseCurrency()
