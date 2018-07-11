@@ -7,17 +7,19 @@ public class Package {
     private final int height;
     private final int width;
     private final int depth;
+    private final SizedPackage sizedPackage;
 
     public Package(int weight, int height, int width, int depth) {
         this.weight = weight;
         this.height = height;
         this.width = width;
         this.depth = depth;
+        sizedPackage = createSizedPackage();
     }
 
     public BigDecimal PostageInBaseCurrency()
     {
-        return createSizedPackage().postageInBaseCurrency();
+        return sizedPackage.postageInBaseCurrency();
     }
 
     private SizedPackage createSizedPackage() {
