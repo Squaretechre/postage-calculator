@@ -25,6 +25,10 @@ public class Package {
         {
             return mediumPackagePostageInBaseCurrency();
         }
+        return largePackagePostageInBaseCurrency();
+    }
+
+    private BigDecimal largePackagePostageInBaseCurrency() {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 
