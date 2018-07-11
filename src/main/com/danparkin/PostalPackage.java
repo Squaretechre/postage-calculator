@@ -2,8 +2,8 @@ package com.danparkin;
 
 import java.math.BigDecimal;
 
-public abstract class SizedPackage {
-    static SizedPackage withDimensions(int depth, int height, int weight, int width) {
+public abstract class PostalPackage {
+    static PostalPackage withDimensions(int depth, int height, int weight, int width) {
         if (isSmall(depth, height, weight, width))
         {
             return new SmallPackage();

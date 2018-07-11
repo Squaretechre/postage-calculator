@@ -2,7 +2,7 @@ package com.danparkin;
 
 import java.math.BigDecimal;
 
-public class LargePackage extends SizedPackage {
+public class LargePackage extends PostalPackage {
     private final int depth;
     private final int height;
     private final int weight;

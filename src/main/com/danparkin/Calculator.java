@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Calculator {
     public Money Calculate(int weight, int height, int width, int depth, Currency currency)
     {
-        BigDecimal amountInBaseCurrency = SizedPackage.withDimensions(depth, height, weight, width).postageInBaseCurrency();
+        BigDecimal amountInBaseCurrency = PostalPackage.withDimensions(depth, height, weight, width).postageInBaseCurrency();
         return ConvertCurrency(amountInBaseCurrency, currency);
     }
 
