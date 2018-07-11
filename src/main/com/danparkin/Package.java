@@ -36,9 +36,4 @@ public class Package {
         return weight <= 60 && height <= 229 && width <= 162 && depth <= 25;
     }
 
-    public class SmallPackage {
-        public BigDecimal postageInBaseCurrency() {
-            return new BigDecimal(120);
-        }
-    }
 }
