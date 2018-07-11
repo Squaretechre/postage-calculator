@@ -9,7 +9,7 @@ public class MediumPackage {
         this.weight = weight;
     }
 
-    public BigDecimal mediumPackagePostageInBaseCurrency() {
+    public BigDecimal postageInBaseCurrency() {
         return new BigDecimal(weight * 4);
     }
 }

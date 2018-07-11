@@ -15,7 +15,7 @@ public class LargePackage {
         this.width = width;
     }
 
-    public BigDecimal largePackagePostageInBaseCurrency() {
+    public BigDecimal postageInBaseCurrency() {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 }
