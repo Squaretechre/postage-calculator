@@ -17,7 +17,7 @@ public class Package {
 
     public BigDecimal PostageInBaseCurrency()
     {
-        if (weight <= 60 && height <= 229 && width <= 162 && depth <= 25)
+        if (isSmall())
         {
             return new BigDecimal(120);
         }
@@ -26,5 +26,9 @@ public class Package {
             return new BigDecimal(weight * 4);
         }
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
+    }
+
+    private boolean isSmall() {
+        return weight <= 60 && height <= 229 && width <= 162 && depth <= 25;
     }
 }
