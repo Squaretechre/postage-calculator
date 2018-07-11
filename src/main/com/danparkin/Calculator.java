@@ -5,21 +5,8 @@ import java.math.BigDecimal;
 public class Calculator {
     public Money Calculate(int weight, int height, int width, int depth, Currency currency)
     {
-        BigDecimal postageInBaseCurrency = PostageInBaseCurrency(new Package(weight, height, width, depth));
+        BigDecimal postageInBaseCurrency = new Package(weight, height, width, depth).PostageInBaseCurrency();
         return ConvertCurrency(postageInBaseCurrency, currency);
-    }
-
-    private BigDecimal PostageInBaseCurrency(Package aPackage)
-    {
-        if (aPackage.getWeight() <= 60 && aPackage.getHeight() <= 229 && aPackage.getWidth() <= 162 && aPackage.getDepth() <= 25)
-        {
-            return new BigDecimal(120);
-        }
-        if (aPackage.getWeight() <= 500 && aPackage.getHeight() <= 324 && aPackage.getWidth() <= 229 && aPackage.getDepth() <= 100)
-        {
-            return new BigDecimal(aPackage.getWeight() * 4);
-        }
-        return new BigDecimal(Math.max(aPackage.getWeight(), aPackage.getHeight() * aPackage.getWidth() * aPackage.getDepth() / 1000) * 6);
     }
 
     private Money ConvertCurrency(BigDecimal amountInBaseCurrency, Currency currency)
