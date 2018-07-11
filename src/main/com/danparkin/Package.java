@@ -3,17 +3,9 @@ package com.danparkin;
 import java.math.BigDecimal;
 
 public class Package {
-    private final int weight;
-    private final int height;
-    private final int width;
-    private final int depth;
     private final SizedPackage sizedPackage;
 
     public Package(int weight, int height, int width, int depth) {
-        this.weight = weight;
-        this.height = height;
-        this.width = width;
-        this.depth = depth;
         sizedPackage = createSizedPackage(depth, height, weight, width);
     }
 
