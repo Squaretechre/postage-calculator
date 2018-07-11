@@ -16,22 +16,6 @@ public class LargePackage {
     }
 
     public BigDecimal largePackagePostageInBaseCurrency() {
-        return new BigDecimal(Math.max(getWeight(), getHeight() * getWidth() * getDepth() / 1000) * 6);
-    }
-
-    public int getDepth() {
-        return depth;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public int getWidth() {
-        return width;
+        return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 }
