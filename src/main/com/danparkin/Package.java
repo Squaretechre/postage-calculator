@@ -19,7 +19,7 @@ public class Package {
     {
         if (isSmall())
         {
-            return smallPackagePostageInBaseCurrency();
+            return new SmallPackage().smallPackagePostageInBaseCurrency();
         }
         if (isMedium())
         {
@@ -36,15 +36,17 @@ public class Package {
         return new BigDecimal(weight * 4);
     }
 
-    private BigDecimal smallPackagePostageInBaseCurrency() {
-        return new BigDecimal(120);
-    }
-
     private boolean isMedium() {
         return weight <= 500 && height <= 324 && width <= 229 && depth <= 100;
     }
 
     private boolean isSmall() {
         return weight <= 60 && height <= 229 && width <= 162 && depth <= 25;
+    }
+
+    public class SmallPackage {
+        public BigDecimal smallPackagePostageInBaseCurrency() {
+            return new BigDecimal(120);
+        }
     }
 }
