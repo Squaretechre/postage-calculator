@@ -23,17 +23,13 @@ public class Package {
         }
         if (isMedium())
         {
-            return mediumPackagePostageInBaseCurrency(weight);
+            return new MediumPackage(weight).mediumPackagePostageInBaseCurrency();
         }
         return largePackagePostageInBaseCurrency();
     }
 
     private BigDecimal largePackagePostageInBaseCurrency() {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
-    }
-
-    private static BigDecimal mediumPackagePostageInBaseCurrency(int weight) {
-        return new BigDecimal(weight * 4);
     }
 
     private boolean isMedium() {
