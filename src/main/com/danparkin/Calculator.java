@@ -38,6 +38,6 @@ public class Calculator {
             BigDecimal rate = new BigDecimal(1.36);
             return new Money(Currency.Chf, basePrice.multiply(rate));
         }
-        throw new UnsupportedOperationException("com.danparkin.Currency not supported");
+        throw new UnsupportedOperationException("Currency not supported");
     }
 }
