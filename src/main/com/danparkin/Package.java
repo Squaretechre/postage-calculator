@@ -21,11 +21,15 @@ public class Package {
         {
             return new BigDecimal(120);
         }
-        if (weight <= 500 && height <= 324 && width <= 229 && depth <= 100)
+        if (isMedium())
         {
             return new BigDecimal(weight * 4);
         }
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
+    }
+
+    private boolean isMedium() {
+        return weight <= 500 && height <= 324 && width <= 229 && depth <= 100;
     }
 
     private boolean isSmall() {
