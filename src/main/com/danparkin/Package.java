@@ -19,13 +19,17 @@ public class Package {
     {
         if (isSmall())
         {
-            return new BigDecimal(120);
+            return smallPackagePostageInBaseCurrency();
         }
         if (isMedium())
         {
             return new BigDecimal(weight * 4);
         }
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
+    }
+
+    private BigDecimal smallPackagePostageInBaseCurrency() {
+        return new BigDecimal(120);
     }
 
     private boolean isMedium() {
