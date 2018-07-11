@@ -1,3 +1,5 @@
+package com.danparkin;
+
 import java.math.BigDecimal;
 
 public class Calculator {
@@ -17,7 +19,7 @@ public class Calculator {
         {
             return new BigDecimal(weight * 4);
         }
-        return new BigDecimal(Math.max(weight, height*width*depth/1000)*6);
+        return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 
     private Money ConvertCurrency(BigDecimal amountInBaseCurrency, Currency currency)
@@ -36,6 +38,6 @@ public class Calculator {
             BigDecimal rate = new BigDecimal(1.36);
             return new Money(Currency.Chf, basePrice.multiply(rate));
         }
-        throw new UnsupportedOperationException("Currency not supported");
+        throw new UnsupportedOperationException("com.danparkin.Currency not supported");
     }
 }

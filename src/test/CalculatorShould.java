@@ -1,3 +1,6 @@
+import com.danparkin.Calculator;
+import com.danparkin.Currency;
+import com.danparkin.Money;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;

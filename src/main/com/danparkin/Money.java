@@ -1,3 +1,5 @@
+package com.danparkin;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -14,7 +16,7 @@ public class Money {
 
     @Override
     public java.lang.String toString() {
-        return String.format("Currency: %s, Amount: %f", currency, amount);
+        return String.format("com.danparkin.Currency: %s, Amount: %f", currency, amount);
     }
 
     @Override
