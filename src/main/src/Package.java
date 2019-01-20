@@ -23,11 +23,11 @@ public class Package {
         if (isMedium()) {
             return new MediumPackage(weight).mediumPackagePostageInBaseCurrency();
         }
-        return largePackagePostageInBaseCurrency(depth, height, weight, width);
+        return largePackagePostageInBaseCurrency(new LargePackage(depth, height, weight, width));
     }
 
-    private static BigDecimal largePackagePostageInBaseCurrency(int depth, int height, int weight, int width) {
-        return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
+    private static BigDecimal largePackagePostageInBaseCurrency(LargePackage largePackage) {
+        return new BigDecimal(Math.max(largePackage.getWeight(), largePackage.getHeight() * largePackage.getWidth() * largePackage.getDepth() / 1000) * 6);
     }
 
     private boolean isMedium() {
