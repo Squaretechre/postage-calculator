@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="postage-calculator" target="7" />
+      <module name="postage-calculator" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
