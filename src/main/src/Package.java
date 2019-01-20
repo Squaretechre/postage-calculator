@@ -21,7 +21,7 @@ public class Package {
             return smallPackage.smallPackagePostageInBaseCurrency();
         }
         if (isMedium()) {
-            return mediumPackagePostageInBaseCurrency();
+            return mediumPackagePostageInBaseCurrency(weight);
         }
         return largePackagePostageInBaseCurrency();
     }
@@ -30,7 +30,7 @@ public class Package {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 
-    private BigDecimal mediumPackagePostageInBaseCurrency() {
+    private static BigDecimal mediumPackagePostageInBaseCurrency(int weight) {
         return new BigDecimal(weight * 4);
     }
 

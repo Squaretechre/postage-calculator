@@ -2,8 +2,8 @@ package src;
 
 import java.math.BigDecimal;
 
-public class SmallPackage {
-    public SmallPackage() {
+class SmallPackage {
+    SmallPackage() {
     }
 
     BigDecimal smallPackagePostageInBaseCurrency() {
