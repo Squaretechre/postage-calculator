@@ -1,10 +1,10 @@
-import src.Package;
+import src.SizedPackage;
 
 import java.math.BigDecimal;
 
 class Calculator {
     Money calculate(int weight, int height, int width, int depth, Currency currency) {
-        BigDecimal postageInBaseCurrency = new Package(weight, height, width, depth).postageInBaseCurrency();
+        BigDecimal postageInBaseCurrency = SizedPackage.withDimensions(depth, height, weight, width).postageInBaseCurrency();
         return convertCurrency(postageInBaseCurrency, currency);
     }
 

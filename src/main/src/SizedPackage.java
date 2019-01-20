@@ -2,9 +2,8 @@ package src;
 
 import java.math.BigDecimal;
 
-abstract class SizedPackage {
-
-    static SizedPackage withDimensions(int depth, int height, int weight, int width) {
+public abstract class SizedPackage {
+    public static SizedPackage withDimensions(int depth, int height, int weight, int width) {
         if (isSmall(depth, height, weight, width)) {
             return new SmallPackage();
         }
