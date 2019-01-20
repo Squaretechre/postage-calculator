@@ -2,6 +2,6 @@ package src;
 
 import java.math.BigDecimal;
 
-interface SizedPackage {
-    BigDecimal postageInBaseCurrency();
+abstract class SizedPackage {
+    public abstract BigDecimal postageInBaseCurrency();
 }

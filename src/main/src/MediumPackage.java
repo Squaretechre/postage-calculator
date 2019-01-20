@@ -2,7 +2,7 @@ package src;
 
 import java.math.BigDecimal;
 
-class MediumPackage implements SizedPackage {
+class MediumPackage extends SizedPackage {
     private final int weight;
 
     MediumPackage(int weight) {
