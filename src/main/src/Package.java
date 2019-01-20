@@ -16,17 +16,17 @@ public class Package {
     }
 
     public BigDecimal postageInBaseCurrency() {
-        return createSizedPackage();
+        return createSizedPackage().postageInBaseCurrency();
     }
 
-    private BigDecimal createSizedPackage() {
+    private SizedPackage createSizedPackage() {
         if (isSmall()) {
-            return new SmallPackage().postageInBaseCurrency();
+            return new SmallPackage();
         }
         if (isMedium()) {
-            return new MediumPackage(weight).postageInBaseCurrency();
+            return new MediumPackage(weight);
         }
-        return new LargePackage(depth, height, weight, width).postageInBaseCurrency();
+        return new LargePackage(depth, height, weight, width);
     }
 
     private boolean isMedium() {
