@@ -16,6 +16,10 @@ public class Package {
     }
 
     public BigDecimal postageInBaseCurrency() {
+        return createSizedPackage();
+    }
+
+    private BigDecimal createSizedPackage() {
         if (isSmall()) {
             return new SmallPackage().postageInBaseCurrency();
         }
