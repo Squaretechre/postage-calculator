@@ -17,12 +17,12 @@ public class Package {
 
     public BigDecimal postageInBaseCurrency() {
         if (isSmall()) {
-            return new SmallPackage().smallPackagePostageInBaseCurrency();
+            return new SmallPackage().postageInBaseCurrency();
         }
         if (isMedium()) {
-            return new MediumPackage(weight).mediumPackagePostageInBaseCurrency();
+            return new MediumPackage(weight).postageInBaseCurrency();
         }
-        return new LargePackage(depth, height, weight, width).largePackagePostageInBaseCurrency();
+        return new LargePackage(depth, height, weight, width).postageInBaseCurrency();
     }
 
     private boolean isMedium() {

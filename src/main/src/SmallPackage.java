@@ -2,11 +2,12 @@ package src;
 
 import java.math.BigDecimal;
 
-class SmallPackage {
+class SmallPackage implements SizedPackage {
     SmallPackage() {
     }
 
-    BigDecimal smallPackagePostageInBaseCurrency() {
+    @Override
+    public BigDecimal postageInBaseCurrency() {
         return new BigDecimal(120);
     }
 }
