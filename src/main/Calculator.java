@@ -1,36 +1,33 @@
+import src.Package;
+
 import java.math.BigDecimal;
 
-public class Calculator {
-    public Money Calculate(int weight, int height, int width, int depth, Currency currency)
-    {
-        BigDecimal postageInBaseCurrency = PostageInBaseCurrency(weight, height, width, depth);
+class Calculator {
+    Money Calculate(int weight, int height, int width, int depth, Currency currency) {
+        BigDecimal postageInBaseCurrency = PostageInBaseCurrency(new Package(weight, height, width, depth));
         return ConvertCurrency(postageInBaseCurrency, currency);
     }
 
-    private BigDecimal PostageInBaseCurrency(int weight, int height, int width, int depth)
-    {
-        if (weight <= 60 && height <= 229 && width <= 162 && depth <= 25)
-        {
+    private BigDecimal PostageInBaseCurrency(Package aPackage) {
+        if (aPackage.getWeight() <= 60 && aPackage.getHeight() <= 229 && aPackage.getWidth() <= 162 && aPackage.getDepth() <= 25) {
             return new BigDecimal(120);
         }
-        if (weight <= 500 && height <= 324 && width <= 229 && depth <= 100)
-        {
-            return new BigDecimal(weight * 4);
+        if (aPackage.getWeight() <= 500 && aPackage.getHeight() <= 324 && aPackage.getWidth() <= 229 && aPackage.getDepth() <= 100) {
+            return new BigDecimal(aPackage.getWeight() * 4);
         }
-        return new BigDecimal(Math.max(weight, height*width*depth/1000)*6);
+        return new BigDecimal(Math.max(aPackage.getWeight(), aPackage.getHeight() * aPackage.getWidth() * aPackage.getDepth() / 1000) * 6);
     }
 
-    private Money ConvertCurrency(BigDecimal amountInBaseCurrency, Currency currency)
-    {
+    private Money ConvertCurrency(BigDecimal amountInBaseCurrency, Currency currency) {
         if (currency == Currency.Gbp)
             return new Money(Currency.Gbp, amountInBaseCurrency);
-        if(currency == Currency.Eur) {
+        if (currency == Currency.Eur) {
             BigDecimal commission = new BigDecimal(200);
             BigDecimal basePrice = amountInBaseCurrency.add(commission);
             BigDecimal rate = new BigDecimal(1.25);
             return new Money(Currency.Eur, basePrice.multiply(rate));
         }
-        if(currency == Currency.Chf) {
+        if (currency == Currency.Chf) {
             BigDecimal commission = new BigDecimal(200);
             BigDecimal basePrice = amountInBaseCurrency.add(commission);
             BigDecimal rate = new BigDecimal(1.36);
