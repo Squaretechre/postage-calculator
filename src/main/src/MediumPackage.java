@@ -2,8 +2,15 @@ package src;
 
 import java.math.BigDecimal;
 
-public class MediumPackage {
-    static BigDecimal mediumPackagePostageInBaseCurrency(int weight) {
+class MediumPackage {
+    private final int weight;
+
+    MediumPackage(int weight) {
+
+        this.weight = weight;
+    }
+
+    BigDecimal mediumPackagePostageInBaseCurrency() {
         return new BigDecimal(weight * 4);
     }
 }
