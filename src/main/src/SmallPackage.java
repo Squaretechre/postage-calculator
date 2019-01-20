@@ -2,7 +2,7 @@ package src;
 
 import java.math.BigDecimal;
 
-class SmallPackage extends SizedPackage {
+class SmallPackage extends Package {
     SmallPackage() {
     }
 
