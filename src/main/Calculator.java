@@ -3,12 +3,12 @@ import src.Package;
 import java.math.BigDecimal;
 
 class Calculator {
-    Money Calculate(int weight, int height, int width, int depth, Currency currency) {
-        BigDecimal postageInBaseCurrency = PostageInBaseCurrency(new Package(weight, height, width, depth));
-        return ConvertCurrency(postageInBaseCurrency, currency);
+    Money calculate(int weight, int height, int width, int depth, Currency currency) {
+        BigDecimal postageInBaseCurrency = postageInBaseCurrency(new Package(weight, height, width, depth));
+        return convertCurrency(postageInBaseCurrency, currency);
     }
 
-    private BigDecimal PostageInBaseCurrency(Package aPackage) {
+    private BigDecimal postageInBaseCurrency(Package aPackage) {
         if (aPackage.getWeight() <= 60 && aPackage.getHeight() <= 229 && aPackage.getWidth() <= 162 && aPackage.getDepth() <= 25) {
             return new BigDecimal(120);
         }
@@ -18,7 +18,7 @@ class Calculator {
         return new BigDecimal(Math.max(aPackage.getWeight(), aPackage.getHeight() * aPackage.getWidth() * aPackage.getDepth() / 1000) * 6);
     }
 
-    private Money ConvertCurrency(BigDecimal amountInBaseCurrency, Currency currency) {
+    private Money convertCurrency(BigDecimal amountInBaseCurrency, Currency currency) {
         if (currency == Currency.Gbp)
             return new Money(Currency.Gbp, amountInBaseCurrency);
         if (currency == Currency.Eur) {

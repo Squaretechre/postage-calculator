@@ -45,7 +45,7 @@ public class CalculatorShould {
     @Parameters(method = "charge_a_flat_rate_for_a_small_package_params")
     public void charge_a_flat_rate_for_a_small_package(int weight, int height, int width, int depth)
     {
-        assertThat(calculator.Calculate(weight, height, width, depth, Currency.Gbp),
+        assertThat(calculator.calculate(weight, height, width, depth, Currency.Gbp),
                 is(new Money(Currency.Gbp, SmallPackagePrice)));
     }
 
@@ -66,7 +66,7 @@ public class CalculatorShould {
     @Parameters(method = "price_a_medium_package_by_weight_params")
     public void price_a_medium_package_by_weight(int weight, int height, int width, int depth)
     {
-        assertThat(calculator.Calculate(weight, height, width, depth, Currency.Gbp),
+        assertThat(calculator.calculate(weight, height, width, depth, Currency.Gbp),
                 is(new Money(Currency.Gbp, new BigDecimal(weight * 4))));
     }
 
@@ -83,7 +83,7 @@ public class CalculatorShould {
     @Parameters(method = "price_a_large_heavy_package_by_weight_params")
     public void price_a_large_heavy_package_by_weight(int weight, int height, int width, int depth)
     {
-        assertThat(calculator.Calculate(weight, height, width, depth, Currency.Gbp),
+        assertThat(calculator.calculate(weight, height, width, depth, Currency.Gbp),
                 is(new Money(Currency.Gbp, new BigDecimal(weight * 6))));
     }
 
@@ -99,7 +99,7 @@ public class CalculatorShould {
     @Parameters(method = "price_a_large_light_package_by_volume_params")
     public void price_a_large_light_package_by_volume(int weight, int height, int width, int depth)
     {
-        assertThat(calculator.Calculate(weight, height, width, depth, Currency.Gbp),
+        assertThat(calculator.calculate(weight, height, width, depth, Currency.Gbp),
                 is(new Money(Currency.Gbp, new BigDecimal((height*width*depth/1000)*6))));
     }
 
@@ -115,7 +115,7 @@ public class CalculatorShould {
     public void add_commission_for_currency_other_than_gbp(Currency currency, double exchangeRate)
     {
         BigDecimal price = SmallPackagePrice.add(Commission).multiply(new BigDecimal(exchangeRate));
-        assertThat(calculator.Calculate(20, 20, 20, 20, currency),
+        assertThat(calculator.calculate(20, 20, 20, 20, currency),
                 is(new Money(currency, price)));
     }
 }
