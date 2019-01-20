@@ -23,10 +23,10 @@ public class Package {
         if (isMedium()) {
             return new MediumPackage(weight).mediumPackagePostageInBaseCurrency();
         }
-        return largePackagePostageInBaseCurrency();
+        return largePackagePostageInBaseCurrency(depth, height, weight, width);
     }
 
-    private BigDecimal largePackagePostageInBaseCurrency() {
+    private static BigDecimal largePackagePostageInBaseCurrency(int depth, int height, int weight, int width) {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 
