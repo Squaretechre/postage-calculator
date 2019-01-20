@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 abstract class SizedPackage {
 
-    static SizedPackage createSizedPackage(int depth, int height, int weight, int width) {
+    static SizedPackage withDimensions(int depth, int height, int weight, int width) {
         if (isSmall(depth, height, weight, width)) {
             return new SmallPackage();
         }
