@@ -4,18 +4,8 @@ import java.math.BigDecimal;
 
 class Calculator {
     Money calculate(int weight, int height, int width, int depth, Currency currency) {
-        BigDecimal postageInBaseCurrency = postageInBaseCurrency(new Package(weight, height, width, depth));
+        BigDecimal postageInBaseCurrency = new Package(weight, height, width, depth).postageInBaseCurrency();
         return convertCurrency(postageInBaseCurrency, currency);
-    }
-
-    private BigDecimal postageInBaseCurrency(Package aPackage) {
-        if (aPackage.getWeight() <= 60 && aPackage.getHeight() <= 229 && aPackage.getWidth() <= 162 && aPackage.getDepth() <= 25) {
-            return new BigDecimal(120);
-        }
-        if (aPackage.getWeight() <= 500 && aPackage.getHeight() <= 324 && aPackage.getWidth() <= 229 && aPackage.getDepth() <= 100) {
-            return new BigDecimal(aPackage.getWeight() * 4);
-        }
-        return new BigDecimal(Math.max(aPackage.getWeight(), aPackage.getHeight() * aPackage.getWidth() * aPackage.getDepth() / 1000) * 6);
     }
 
     private Money convertCurrency(BigDecimal amountInBaseCurrency, Currency currency) {
