@@ -7,7 +7,6 @@ public class Package {
     private final int height;
     private final int width;
     private final int depth;
-    private final SmallPackage smallPackage = new SmallPackage();
 
     public Package(int weight, int height, int width, int depth) {
         this.weight = weight;
@@ -18,7 +17,7 @@ public class Package {
 
     public BigDecimal postageInBaseCurrency() {
         if (isSmall()) {
-            return smallPackage.smallPackagePostageInBaseCurrency();
+            return new SmallPackage().smallPackagePostageInBaseCurrency();
         }
         if (isMedium()) {
             return new MediumPackage(weight).mediumPackagePostageInBaseCurrency();
