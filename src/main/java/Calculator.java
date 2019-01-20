@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class Calculator {
     public Money Calculate(int weight, int height, int width, int depth, Currency currency)
     {
-        BigDecimal postageInBaseCurrency = PostageInBaseCurrency(weight, height, width, depth);
+        var postageInBaseCurrency = PostageInBaseCurrency(weight, height, width, depth);
         return ConvertCurrency(postageInBaseCurrency, currency);
     }
 
@@ -25,15 +25,15 @@ public class Calculator {
         if (currency == Currency.Gbp)
             return new Money(Currency.Gbp, amountInBaseCurrency);
         if(currency == Currency.Eur) {
-            BigDecimal commission = new BigDecimal(200);
-            BigDecimal basePrice = amountInBaseCurrency.add(commission);
-            BigDecimal rate = new BigDecimal(1.25);
+            var commission = new BigDecimal(200);
+            var basePrice = amountInBaseCurrency.add(commission);
+            var rate = new BigDecimal(1.25);
             return new Money(Currency.Eur, basePrice.multiply(rate));
         }
         if(currency == Currency.Chf) {
-            BigDecimal commission = new BigDecimal(200);
-            BigDecimal basePrice = amountInBaseCurrency.add(commission);
-            BigDecimal rate = new BigDecimal(1.36);
+            var commission = new BigDecimal(200);
+            var basePrice = amountInBaseCurrency.add(commission);
+            var rate = new BigDecimal(1.36);
             return new Money(Currency.Chf, basePrice.multiply(rate));
         }
         throw new UnsupportedOperationException("Currency not supported");

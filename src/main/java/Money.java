@@ -21,7 +21,7 @@ public class Money {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Money money = (Money) o;
+        var money = (Money) o;
         return currency == money.currency &&
                 Objects.equals(amount, money.amount);
     }
