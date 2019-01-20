@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
-public class Calculator {
-    public Money Calculate(int weight, int height, int width, int depth, Currency currency)
+class Calculator {
+    Money Calculate(int weight, int height, int width, int depth, Currency currency)
     {
         var postageInBaseCurrency = PostageInBaseCurrency(weight, height, width, depth);
         return ConvertCurrency(postageInBaseCurrency, currency);
