@@ -2,7 +2,7 @@ package src;
 
 import java.math.BigDecimal;
 
-class LargePackage {
+class LargePackage implements SizedPackage {
     private final int depth;
     private final int height;
     private final int weight;
@@ -15,7 +15,8 @@ class LargePackage {
         this.width = width;
     }
 
-    BigDecimal postageInBaseCurrency() {
+    @Override
+    public BigDecimal postageInBaseCurrency() {
         return new BigDecimal(Math.max(weight, height * width * depth / 1000) * 6);
     }
 }

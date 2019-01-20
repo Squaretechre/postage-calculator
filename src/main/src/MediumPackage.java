@@ -2,7 +2,7 @@ package src;
 
 import java.math.BigDecimal;
 
-class MediumPackage {
+class MediumPackage implements SizedPackage {
     private final int weight;
 
     MediumPackage(int weight) {
@@ -10,7 +10,8 @@ class MediumPackage {
         this.weight = weight;
     }
 
-    BigDecimal postageInBaseCurrency() {
+    @Override
+    public BigDecimal postageInBaseCurrency() {
         return new BigDecimal(weight * 4);
     }
 }
